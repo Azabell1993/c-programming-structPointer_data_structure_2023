@@ -1,10 +1,11 @@
+package Java_Lamda_Programming_Code;
 /*
     @ Developer : Azabell1993 Github master  
     @ Created   : 2023-03-07  
     @ fileName  : LamdaTest.java
     @ Purpose   : LambdaTest Success Code.
 */
-package Java_Lamda_Programming_Code;
+
 
 import java.util.function.Function;
 
