@@ -5,8 +5,6 @@ package Java_Lamda_Programming_Code;
     @ fileName  : LamdaTest.java
     @ Purpose   : LambdaTest Success Code.
 */
-
-
 import java.util.function.Function;
 
 public class LamdaTest {

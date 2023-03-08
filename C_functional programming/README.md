@@ -16,7 +16,7 @@ These repository are i get idea motive at like Lamda what Java programming.
 ```
 (2) disadvantage  
 ```
-    continue wirte the information at here space.  
+    continue write the information at here space. 
 ```  
   
 ## Functional Programming Skecth  
