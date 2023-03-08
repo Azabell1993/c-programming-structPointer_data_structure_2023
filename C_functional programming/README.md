@@ -2,8 +2,7 @@
   
 These repository are i get idea motive at like Lamda what Java programming.  
   
-## Lamda Programming aknowledges.
--------
+## Lamda Programming aknowledges.  
 > 1. Lamda is using functional programming what Anonymous functions in programming.  
 > 2. Lamda concept like math aknowledge.  
 > 3. Lamda is don't have name. this is only Anonymous functions. you cant don't input the a lot of parameter information can to be only one parameter at function of Lamda.    
@@ -11,7 +10,6 @@ These repository are i get idea motive at like Lamda what Java programming.
     This is don't have name function. these Anonymous functions are have in common the characteristic of being first class citizens.  
   
 ## Advantages and disadvantages of LAMDA  
--------  
 (1) Advantages   
 ```
     continue wirte the information at here space.  
@@ -22,7 +20,6 @@ These repository are i get idea motive at like Lamda what Java programming.
 ```  
   
 ## Functional Programming Skecth  
--------  
 There is a very subjective developer intention from @Azabell1993.  
 
 1. Basic original C code
@@ -52,7 +49,7 @@ int main(int argc, char** argv) {
 
     return (0);
 }
-  
+```    
 
 This code is so easy and don't have Functional characteristic. so you can make like this code.  
 but if you have alot of parameter, don't use like this code.  
