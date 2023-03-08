@@ -54,7 +54,8 @@ int main(int argc, char** argv) {
 
 ### 2. JAVA Style Lamda Programming Code.  
 ```
-package lamda_example_;
+package Java_Lamda_Programming_Code;
+
 import java.util.function.Function;
 
 public class LamdaTest {
@@ -62,7 +63,8 @@ public class LamdaTest {
 	
 	public static void main(String[] args) {
 		Function<h, Character> say_hello =(h) -> {
-			if((debug_hex & debug_hex) != 0 ) {
+			
+			if((debug_hex & debug_hex) != 0) {
 				System.out.println("Hello World!");
 			} else {
 				System.out.println("Out of range memeory values.");
@@ -87,7 +89,7 @@ public class LamdaTest {
 I want make functinal code at last year, but I don't have what I can make this skills. so I make C-code like LAMDA in this year.  
 (but.....There is a very subjective developer intention from @Azabell1993.)  
   
-Under method of Java Functional Programming.  
+I will make Lamda at C Programming Under method of Java Functional Programming.  
 ```
 () -> {}
 () -> 1

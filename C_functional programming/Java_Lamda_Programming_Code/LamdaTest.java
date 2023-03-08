@@ -1,0 +1,35 @@
+/*
+    @ Developer : Azabell1993 Github master  
+    @ Created   : 2023-03-07  
+    @ fileName  : LamdaTest.java
+    @ Purpose   : LambdaTest Success Code.
+*/
+package Java_Lamda_Programming_Code;
+
+import java.util.function.Function;
+
+public class LamdaTest {
+	private static int debug_hex = 0x00010000;
+	
+	public static void main(String[] args) {
+		Function<h, Character> say_hello =(h) -> {
+			
+			if((debug_hex & debug_hex) != 0) {
+				System.out.println("Hello World!");
+			} else {
+				System.out.println("Out of range memeory values.");
+			}
+			return 1;
+		};
+        h hello = new h();
+        hello.sh = say_hello;
+        hello.sh.apply(hello);
+	}
+	
+	static class h {
+		Function<h, Character> sh;
+	}
+}
+
+// Build Method
+// java .\LamdaTest.java     -- Window OS
