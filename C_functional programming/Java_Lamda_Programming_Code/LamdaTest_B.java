@@ -1,4 +1,3 @@
-package Java_Lamda_Programming_Code;
 /*
     @ Developer : Azabell1993 Github master  
     @ Created   : 2023-03-07  
@@ -13,23 +12,27 @@ public class LamdaTest_B {
     private static int debug_hex = 0x00010000;
 
     public static void main(String[] args) {
-        h calculator = new h(10.0, 5.0);
-        System.out.println(calculate(calculator, (h) -> h.a + h.b)); // 15.0
-        System.out.println(calculate(calculator, (h) -> h.a - h.b)); // 5.0
-        System.out.println(calculate(calculator, (h) -> h.a * h.b)); // 50.0
-        System.out.println(calculate(calculator, (h) -> h.a / h.b)); // 2.0
+        Calculator calculator = new Calculator(10.0, 5.0);
+        System.out.println(calculator(calculator, (h) -> h.a + h.b)); // 15.0
+        System.out.println(calculator(calculator, (h) -> h.a - h.b)); // 5.0
+        System.out.println(calculator(calculator, (h) -> h.a * h.b)); // 50.0
+        System.out.println(calculator(calculator, (h) -> h.a / h.b)); // 2.0
+
+
+        Calculator calculator2 = new Calculator(20.0, 100.0);
+        System.out.println(calculator(calculator2, (h2222) -> h2222.a + h2222.b)); // 2.0
     }
 
-    static class h {
+    static class Calculator {
         double a, b;
 
-        h(double a, double b) {
+        Calculator(double a, double b) {
             this.a = a;
             this.b = b;
         }
     }
 
-    static double calculate(h calculator, Function<h, Double> f) {
-        return f.apply(calculator);
+    static double calculator(Calculator calculator, Function<Calculator, Double> func) {
+        return func.apply(calculator);
     }
 }
