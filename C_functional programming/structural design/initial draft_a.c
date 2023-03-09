@@ -107,7 +107,7 @@ typedef struct func {
     int (*apply)(Calculator calculator);
 } func;
 
-static int apply_func(Calculator calculator) {
+static int Calculator##apply_func(Calculator calculator) {
     /* */
 }
 
@@ -125,7 +125,8 @@ calculator(calculator, (h) -> h.a + h.b)
 calculator(calculator, (?) -> ?.argc + ?.argc)
 
 calculator(calculator, (?) -> /* parser */)
-
+calculator(calculator, (?) ->##function)
+calculator(parserFunction##function)
 
 az_printf(calculator(calculator, (h) -> h.a + h.b))
 
