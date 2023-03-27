@@ -79,9 +79,9 @@ Token* tokenize(char* input) {
             strcpy(tokens[token_count].value, ")");
             token_count++;
             break;
+        }
+        i++; // Move on to the next character
     }
-    i++; // Move on to the next character
-}
 
     // Add a null token to the end of the token array to indicate the end of tokens
     tokens[token_count].type = '\0';
