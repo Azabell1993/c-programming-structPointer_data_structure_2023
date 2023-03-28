@@ -45,7 +45,7 @@ extern "C" {
                                                                 \
     int Calculator##calcu(const helloworld *self, type age)     \
     {                                                           \
-        return 
+        return (a k b);
     }                                                           \
                                                                 \
     helloworld new_##helloworld(void)                           \

@@ -18,13 +18,13 @@ char* hello_print(int num) {
 
 char* printexample(char* myname) {
     char* result = malloc(sizeof(char) * 100);
-    sprintf(result, "안녕하세요. 저의 이름은 %s입니다. 오늘 우리가 만난 횟수는 %s번!", myname, hello_print(1));
+    sprintf(result, "Hello, My name is %s. The number of times we met is %s!", myname, hello_print(1));
     return (result);
 }
 
 int main() {
     char* (*print_example)(char*) = lambda(char*, (char* myname) { return printexample(myname); });
-    printf("%s\n", print_example("개발자 박지우"));
+    printf("%s\n", print_example("Developer Park JiWoo"));
 
     int square_value = 10;
     int (*squretest)(int) = lambda(int, (int num) { return num*num;});
