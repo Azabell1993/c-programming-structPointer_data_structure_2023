@@ -1,15 +1,15 @@
 ## IDEA SKECTH  
   
-These repository are i get idea motive at like Lamda what Java programming.  
+These repository are i get idea motive at like lambda what Java programming.  
   
-## Lamda Programming aknowledges.  
-> 1. Lamda is using functional programming what Anonymous functions in programming.  
-> 2. Lamda concept like math aknowledge.  
-> 3. Lamda is don't have name. this is only Anonymous functions. you cant don't input the a lot of parameter information can to be only one parameter at function of Lamda.    
-> 4. What is the Lamda?   
+## lambda Programming aknowledges.  
+> 1. lambda is using functional programming what Anonymous functions in programming.  
+> 2. lambda concept like math aknowledge.  
+> 3. lambda is don't have name. this is only Anonymous functions. you cant don't input the a lot of parameter information can to be only one parameter at function of lambda.    
+> 4. What is the lambda?   
     This is don't have name function. these Anonymous functions are have in common the characteristic of being first class citizens.  
   
-## Advantages and disadvantages of LAMDA  
+## Advantages and disadvantages of lambda  
 (1) Advantages   
 ```
     continue wirte the information at here space.  
@@ -52,13 +52,13 @@ int main(int argc, char** argv) {
 }
 ```    
 
-### 2. JAVA Style Lamda Programming Code.  
+### 2. JAVA Style lambda Programming Code.  
 ```
-package Java_Lamda_Programming_Code;
+package Java_lambda_Programming_Code;
 
 import java.util.function.Function;
 
-public class LamdaTest {
+public class lambdaTest {
 	private static int debug_hex = 0x00010000;
 	
 	public static void main(String[] args) {
@@ -86,10 +86,10 @@ public class LamdaTest {
 > but if you have alot of parameter, don't use like this code.  
 > so I make this repository at information about functional programming.  
   
-I want make functinal code at last year, but I don't have what I can make this skills. so I make C-code like LAMDA in this year.  
+I want make functinal code at last year, but I don't have what I can make this skills. so I make C-code like lambda in this year.  
 (but.....There is a very subjective developer intention from @Azabell1993.)  
   
-I will make Lamda at C Programming Under method of Java Functional Programming.  
+I will make lambda at C Programming Under method of Java Functional Programming.  
 ```
 () -> {}
 () -> 1

@@ -2,7 +2,7 @@
     @ Developer : Azabell1993 Github master  
     @ Created   : 2023-03-07 9
     @ fileName  : initial draft.c
-    @ Purpose   : C style Lamda first initial draft skecth
+    @ Purpose   : C style lambda first initial draft skecth
 */
 
 #pragma ONCE

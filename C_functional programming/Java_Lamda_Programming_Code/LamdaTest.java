@@ -1,13 +1,13 @@
-package Java_Lamda_Programming_Code;
+package Java_lambda_Programming_Code;
 /*
     @ Developer : Azabell1993 Github master  
     @ Created   : 2023-03-07  
-    @ fileName  : LamdaTest.java
+    @ fileName  : lambdaTest.java
     @ Purpose   : LambdaTest Success Code.
 */
 import java.util.function.Function;
 
-public class LamdaTest {
+public class lambdaTest {
 	private static int debug_hex = 0x00010000;
 	
 	public static void main(String[] args) {
@@ -31,4 +31,4 @@ public class LamdaTest {
 }
 
 // Build Method
-// java .\LamdaTest.java     -- Window OS
+// java .\lambdaTest.java     -- Window OS

@@ -3,7 +3,7 @@
 #include <stdint.h>
 #include <stdlib.h>
 
-static char *lamda_parser_keyword(char keyword[3]) {
+static char *lambda_parser_keyword(char keyword[3]) {
     strcpy(keyword, "->");
     long len = strlen(keyword);
     int ret = 0;
@@ -23,7 +23,7 @@ int main() {
     char *keyword;
     keyword = (char*)malloc(sizeof(char)*3);
 
-    printf("%s", lamda_parser_keyword(keyword));
+    printf("%s", lambda_parser_keyword(keyword));
     free(keyword);
     return 0;
 }

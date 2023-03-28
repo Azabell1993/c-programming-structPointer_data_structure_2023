@@ -3,13 +3,19 @@
         {
             "type": "cppbuild",
             "label": "C/C++: gcc.exe 활성 파일 빌드",
-            "command": "C:\\Program Files\\mingw64\\bin\\gcc.exe",
+            // window
+            // "command": "C:\\Program Files\\mingw64\\bin\\gcc.exe",
+            // mac
+            "command": "/usr/local/Cellar/gcc/12.2.0/bin/gcc-12",
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
                 "${file}",
                 "-o",
-                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+                // window
+                // "${fileDirname}\\${fileBasenameNoExtension}.exe"
+                // mac
+                "${fileDirname}/${fileBasenameNoExtension}"
             ],
             "options": {
                 "cwd": "${fileDirname}"
