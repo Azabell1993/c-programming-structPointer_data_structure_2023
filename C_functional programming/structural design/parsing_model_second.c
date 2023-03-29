@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
-#include <stdlib.h> // for malloc, free
+#include <stdlib.h>
 
 #define MAX_TOKEN_LENGTH 100
 
@@ -13,21 +13,19 @@ typedef struct Token {
 
 // Enumerate the types of tokens
 enum {
-    TOKEN_NUMBER, // Number
-    TOKEN_PLUS, // Plus operator
-    TOKEN_MINUS, // Minus operator
+    TOKEN_NUMBER,   // Number
+    TOKEN_PLUS,     // Plus operator
+    TOKEN_MINUS,    // Minus operator
     TOKEN_MULTIPLY, // Multiply operator
-    TOKEN_DIVIDE, // Divide operator
-    TOKEN_LPAREN, // Left parenthesis
-    TOKEN_RPAREN, // Right parenthesis
-
-    /* add keyword about '->' */
-    TOKEN_ARROW // Arrow operator
+    TOKEN_DIVIDE,   // Divide operator
+    TOKEN_LPAREN,   // Left parenthesis
+    TOKEN_RPAREN,   // Right parenthesis
+    TOKEN_ARROW     // Arrow keyword parsing
 };
 
 // Define a function to tokenize the input string
 Token* tokenize(char* input) {
-    Token* tokens = malloc(100 * sizeof(Token)); // Allocate memory for tokens
+    static Token tokens[100]; // An array to store tokens
     int token_count = 0; // The number of tokens
     int i = 0;
 
@@ -59,7 +57,7 @@ Token* tokenize(char* input) {
                 token_count++;
                 break;
             case '-':
-                if (i == 0 || (tokens[token_count - 1].type != TOKEN_NUMBER && tokens[token_count - 1].type != TOKEN_RPAREN)) {
+                if (i == 0 || (tokens[token_count].type != TOKEN_NUMBER && tokens[token_count].type != TOKEN_RPAREN)) {
                     // This is a minus sign
                     tokens[token_count].type = TOKEN_MINUS;
                     strcpy(tokens[token_count].value, "-");
@@ -69,7 +67,13 @@ Token* tokenize(char* input) {
                     tokens[token_count].type = TOKEN_ARROW;
                     strcpy(tokens[token_count].value, "->");
                     token_count++;
-                    i++; // Skip over the '>' character
+                    i+=1; // Skip over the '>' character
+                    break;
+                } else if (input[i + 1] == ' ') {
+                    tokens[token_count].type = TOKEN_MINUS;
+                    strcpy(tokens[token_count].value, "-");
+                    token_count++;
+                    i+=1; // Skip over the '>' character
                     break;
                 }
             case '*':
@@ -92,10 +96,6 @@ Token* tokenize(char* input) {
                 strcpy(tokens[token_count].value, ")");
                 token_count++;
                 break;
-            default:
-                // If the character is not a digit or an operator, it is an invalid character
-                printf("Invalid character: %c\n", input[i]);
-                return NULL;
         }
         i++; // Move on to the next character
     }
@@ -105,37 +105,34 @@ Token* tokenize(char* input) {
     tokens[token_count].value[0] = '\0';
 
     return tokens;
+
+}
+
+int return_length(char *input) {
+    char *input_without_spaces;
+    input_without_spaces = (char*)malloc(sizeof(char)*sizeof(input_without_spaces));
+    int j = 0;
+    for (int i = 0; i < strlen(input); i++) {
+        if (input[i] != ' ') {
+            input_without_spaces[j] = input[i];
+            j++;
+        }
+    }
+    input_without_spaces[j] = '\0';
+
+    return (strlen(input_without_spaces));
 }
 
 int main() {
-    // Input expression
-    char input[MAX_TOKEN_LENGTH] = "x->y->z";
+    // Test Data Container 'input' value : get the keyword '->'
+    char input[MAX_TOKEN_LENGTH] = "xaaa -> y->z->bb -> bb->we->z->awq - e";
 
-    // Tokenize the input expression
     Token* tokens = tokenize(input);
-
-    // Parse the tokens to access the field of a variable using "->" operator
-    int i = 0;
-    while (tokens[i].type != '\0') {
-        // Check if the current token is "->"
-        if (tokens[i].type == TOKEN_ARROW && i > 0 && tokens[i+1].type != '\0') {
-            // Get the name of the variable
-            char var_name[MAX_TOKEN_LENGTH];
-            strncpy(var_name, tokens[i-1].value, MAX_TOKEN_LENGTH);
-
-            // Get the name of the field
-            char field_name[MAX_TOKEN_LENGTH];
-            strncpy(field_name, tokens[i+1].value, MAX_TOKEN_LENGTH);
-
-            // Access the field of the variable
-            printf("%s.%s\n", var_name, field_name);
-
-            // Skip the next token
-            i += 2;
-        } else {
-            i++;
-        }
+    printf("\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+    for (int i = 0; i < return_length(input); i++) {
+        printf("Token %d: %d (%s)\n", i, tokens[i].type, tokens[i].value);
     }
+    printf("\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
 
-    return 0;
+    return (0);
 }

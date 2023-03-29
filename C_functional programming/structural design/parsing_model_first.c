@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
+#include <stdlib.h>
 
 #define MAX_TOKEN_LENGTH 100
 
@@ -91,16 +92,9 @@ Token* tokenize(char* input) {
 
 }
 
-int return_length(char *input_without_spaces) {
-    return strlen(input_without_spaces);
-    // add contents code...
-}
-
-int main() {
-    char input[MAX_TOKEN_LENGTH] = "(3 + 4) * 5 - 6 / 2 - 5 + 6 - 2";
-    Token* tokens = tokenize(input);
-
-    char input_without_spaces[MAX_TOKEN_LENGTH];
+int return_length(char *input) {
+    char *input_without_spaces;
+    input_without_spaces = (char*)malloc(sizeof(char)*sizeof(input_without_spaces));
     int j = 0;
     for (int i = 0; i < strlen(input); i++) {
         if (input[i] != ' ') {
@@ -110,10 +104,15 @@ int main() {
     }
     input_without_spaces[j] = '\0';
 
-    printf("%d\n", strlen(input_without_spaces));
-    printf("%d", return_length(input));
+    return (strlen(input_without_spaces));
+}
+
+int main() {
+    char input[MAX_TOKEN_LENGTH] = "(3 + 4) * 5 - 6 / 2 - 5 + 6 - 2";
+   
+    Token* tokens = tokenize(input);
     printf("\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    for (int i = 0; i < strlen(input_without_spaces); i++) {
+    for (int i = 0; i < return_length(input); i++) {
         printf("Token %d: %d (%s)\n", i, tokens[i].type, tokens[i].value);
     }
     printf("\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
