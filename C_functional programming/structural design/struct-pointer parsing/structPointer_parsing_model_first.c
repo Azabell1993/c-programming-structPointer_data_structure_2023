@@ -53,6 +53,7 @@ Token* tokenize(char* input) {
             continue;
         }
 
+        int j=1;
         // If the character is an operator, tokenize it as an operator
         switch (input[i]) {
             case '+':
@@ -79,6 +80,12 @@ Token* tokenize(char* input) {
                     token_count++;
                     i+=1; // Skip over the '>' character
                     break;
+                } else if (input[i + 1] != TOKEN_MINUS && input[i+1] != TOKEN_ARROW) {
+                    //tokens[token_count].type = TOKEN_MINUS;
+                    strcpy(tokens[token_count].value, "-");
+                    token_count++;
+                    i+=1; // Skip over the '>' character
+                    break;
                 }
             case '*':
                 tokens[token_count].type = TOKEN_MULTIPLY;
@@ -98,6 +105,11 @@ Token* tokenize(char* input) {
             case ')':
                 tokens[token_count].type = TOKEN_RPAREN;
                 strcpy(tokens[token_count].value, ")");
+                token_count++;
+                break;
+            default :
+                tokens[token_count].type = TOKEN_STRUCT;
+                strcpy(tokens[token_count].value, "structPointer");
                 token_count++;
                 break;
         }
@@ -129,13 +141,30 @@ int return_length(char *input) {
 
 int main() {
     // Test Data Container 'input' value : get the keyword '->'
-    char input[MAX_TOKEN_LENGTH] = "xaaa -> y->z->bb -> bb->we->z->awq - e";
+    char input[MAX_TOKEN_LENGTH] = "s21xaaa -> y->z->bb -> bb->we->z->awq -e * e2 ";
 
     Token* tokens = tokenize(input);
+
     printf("\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     for (int i = 0; i < return_length(input); i++) {
-        printf("Token %d: %d (%s)\n", i, tokens[i].type, tokens[i].value);
+        // Tokenize numbers and struct pointers as a single token until the "->" operator
+        if (tokens[i].type == TOKEN_NUMBER || tokens[i].type == TOKEN_STRUCT) {
+            int j = i + 1;
+            while (j < return_length(input) && tokens[j].type != TOKEN_ARROW) {
+                if (tokens[j].type == TOKEN_NUMBER || tokens[j].type == TOKEN_STRUCT) {
+                    strcat(tokens[i].value, tokens[j].value);
+                    // Mark the concatenated tokens as already processed by assigning an empty string to its value
+                    strcpy(tokens[j].value, "");
+                }
+                j++;
+            }
+        }
+        // Print the token information only if the value is not empty
+        if (strlen(tokens[i].value) > 0) {
+            printf("Token %d: %d (%s)\n", i, tokens[i].type, tokens[i].value);
+        }
     }
+
     printf("\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
 
     hellofunc hello = new_hellofunc();
@@ -147,7 +176,7 @@ int main() {
     }
 
     // char testStructPointer[MAX_TOKEN_LENGTH] = "-> (hello)";
-    
+
 
     return (0);
 }
