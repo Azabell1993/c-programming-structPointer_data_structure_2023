@@ -28,57 +28,57 @@ Token* tokenize(char* input) {
     int i = 0;
 
     while (input[i]) {
-    // Ignore whitespace
-    if (isspace(input[i])) {
-        i++;
-        continue;
-    }
-
-    // If the character is a digit, tokenize it as a number
-    if (isdigit(input[i])) {
-        char value[MAX_TOKEN_LENGTH] = {0};
-        int j = 0;
-        while (isdigit(input[i])) {
-            value[j++] = input[i++];
+        // Ignore whitespace
+        if (isspace(input[i])) {
+            i++;
+            continue;
         }
-        tokens[token_count].type = TOKEN_NUMBER;
-        strcpy(tokens[token_count].value, value);
-        token_count++;
-        continue;
-    }
 
-    // If the character is an operator, tokenize it as an operator
-    switch (input[i]) {
-        case '+':
-            tokens[token_count].type = TOKEN_PLUS;
-            strcpy(tokens[token_count].value, "+");
+        // If the character is a digit, tokenize it as a number
+        if (isdigit(input[i])) {
+            char value[MAX_TOKEN_LENGTH] = {0};
+            int j = 0;
+            while (isdigit(input[i])) {
+                value[j++] = input[i++];
+            }
+            tokens[token_count].type = TOKEN_NUMBER;
+            strcpy(tokens[token_count].value, value);
             token_count++;
-            break;
-        case '-':
-            tokens[token_count].type = TOKEN_MINUS;
-            strcpy(tokens[token_count].value, "-");
-            token_count++;
-            break;
-        case '*':
-            tokens[token_count].type = TOKEN_MULTIPLY;
-            strcpy(tokens[token_count].value, "*");
-            token_count++;
-            break;
-        case '/':
-            tokens[token_count].type = TOKEN_DIVIDE;
-            strcpy(tokens[token_count].value, "/");
-            token_count++;
-            break;
-        case '(':
-            tokens[token_count].type = TOKEN_LPAREN;
-            strcpy(tokens[token_count].value, "(");
-            token_count++;
-            break;
-        case ')':
-            tokens[token_count].type = TOKEN_RPAREN;
-            strcpy(tokens[token_count].value, ")");
-            token_count++;
-            break;
+            continue;
+        }
+
+        // If the character is an operator, tokenize it as an operator
+        switch (input[i]) {
+            case '+':
+                tokens[token_count].type = TOKEN_PLUS;
+                strcpy(tokens[token_count].value, "+");
+                token_count++;
+                break;
+            case '-':
+                tokens[token_count].type = TOKEN_MINUS;
+                strcpy(tokens[token_count].value, "-");
+                token_count++;
+                break;
+            case '*':
+                tokens[token_count].type = TOKEN_MULTIPLY;
+                strcpy(tokens[token_count].value, "*");
+                token_count++;
+                break;
+            case '/':
+                tokens[token_count].type = TOKEN_DIVIDE;
+                strcpy(tokens[token_count].value, "/");
+                token_count++;
+                break;
+            case '(':
+                tokens[token_count].type = TOKEN_LPAREN;
+                strcpy(tokens[token_count].value, "(");
+                token_count++;
+                break;
+            case ')':
+                tokens[token_count].type = TOKEN_RPAREN;
+                strcpy(tokens[token_count].value, ")");
+                token_count++;
+                break;
         }
         i++; // Move on to the next character
     }
@@ -91,14 +91,32 @@ Token* tokenize(char* input) {
 
 }
 
+int return_length(char *input_without_spaces) {
+    return strlen(input_without_spaces);
+    // add contents code...
+}
+
 int main() {
-    char input[MAX_TOKEN_LENGTH] = "(3 + 4) * 5 - 6 / 2";
+    char input[MAX_TOKEN_LENGTH] = "(3 + 4) * 5 - 6 / 2 - 5 + 6 - 2";
     Token* tokens = tokenize(input);
 
-    // Print out the tokens in the token array
-    for (int i = 0; i < sizeof(tokenize(input)); i++) {
+    char input_without_spaces[MAX_TOKEN_LENGTH];
+    int j = 0;
+    for (int i = 0; i < strlen(input); i++) {
+        if (input[i] != ' ') {
+            input_without_spaces[j] = input[i];
+            j++;
+        }
+    }
+    input_without_spaces[j] = '\0';
+
+    printf("%d\n", strlen(input_without_spaces));
+    printf("%d", return_length(input));
+    printf("\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+    for (int i = 0; i < strlen(input_without_spaces); i++) {
         printf("Token %d: %d (%s)\n", i, tokens[i].type, tokens[i].value);
     }
+    printf("\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
 
     return (0);
 }
