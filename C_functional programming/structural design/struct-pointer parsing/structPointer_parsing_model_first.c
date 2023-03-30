@@ -141,14 +141,14 @@ int return_length(char *input) {
 
 int main() {
     // Test Data Container 'input' value : get the keyword '->'
-    char input[MAX_TOKEN_LENGTH] = "s21xaaa -> y->z->bb -> bb->we->z->awq -e * e2 ";
+    char input[MAX_TOKEN_LENGTH] = "s21xaaa -> y->z->bb -> bb->we->z->awq -e ";
 
     Token* tokens = tokenize(input);
 
     printf("\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     for (int i = 0; i < return_length(input); i++) {
         // Tokenize numbers and struct pointers as a single token until the "->" operator
-        if (tokens[i].type == TOKEN_NUMBER || tokens[i].type == TOKEN_STRUCT) {
+        if (tokens[i].type == TOKEN_NUMBER || tokens[i].type == TOKEN_STRUCT) { 
             int j = i + 1;
             while (j < return_length(input) && tokens[j].type != TOKEN_ARROW) {
                 if (tokens[j].type == TOKEN_NUMBER || tokens[j].type == TOKEN_STRUCT) {
