@@ -126,7 +126,7 @@ Token* tokenize(char* input) {
 
 int return_length(char *input) {
     char *input_without_spaces;
-    input_without_spaces = (char*)malloc(sizeof(char)*sizeof(input_without_spaces));
+    input_without_spaces = (char*)malloc(sizeof(char)*(strlen(input)+1));
     int j = 0;
     for (int i = 0; i < strlen(input); i++) {
         if (input[i] != ' ') {
