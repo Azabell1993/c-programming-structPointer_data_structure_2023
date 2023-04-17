@@ -5,8 +5,12 @@
             "label": "C/C++: gcc.exe 활성 파일 빌드",
             // window
             // "command": "C:\\Program Files\\mingw64\\bin\\gcc.exe",
+            
             // mac
-            "command": "/usr/local/Cellar/gcc/12.2.0/bin/gcc-12",
+            //"command": "/usr/local/Cellar/gcc/12.2.0/bin/gcc-12",
+            
+            // Linux(Ubuntu)
+            "command" : "/usr/bin/gcc",
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",

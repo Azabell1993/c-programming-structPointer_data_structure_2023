@@ -25,7 +25,7 @@ enum {
 // Define a function to tokenize the input string
 Token* tokenize(char* input) {
     static Token tokens[100]; // An array to store tokens
-    int token_count = 0; // The number of tokens
+    int token_count = 0; // The nsumber of tokens
     int i = 0;
 
     while (input[i]) {
